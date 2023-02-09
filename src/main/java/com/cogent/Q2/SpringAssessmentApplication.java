@@ -24,12 +24,7 @@ public class SpringAssessmentApplication {
 	
 	@PostConstruct
 	public void registerUsersAndAuthors(){
-		List<User> users = Stream.of(
-				new User(101, "will", "password", "will@gmail.com"),
-				new User(102, "frank", "password01", "fran@gmail.com"),
-				new User(103, "bernard", "password02", "bern@gmail.com")
-				).collect(Collectors.toList());
-		userRepo.saveAll(users);
+		userRepo.save(new User(101, "will", "password", "will@gmail.com"));
 		
 		List<Author> authors = Stream.of(
 				new Author(444, "Tim", "145 Ray Road.", 9086668978L),
